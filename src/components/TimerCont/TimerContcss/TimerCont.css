@@ -1,0 +1,21 @@
+.timer-container {
+  background: #665453;
+  border: 2px solid #4b3a39;
+  border-radius: 49px;
+}
+.rest-timer {
+  color: #ece2d0;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 54px;
+}
+
+.work-timer {
+  color: #ff98c3;
+  font-family: "Henny Penny";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 128px;
+  line-height: 227px;
+}
