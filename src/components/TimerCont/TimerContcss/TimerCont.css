@@ -45,3 +45,15 @@
   margin-left: 20px;
   font-family: "Henny Penny";
 }
+
+.button {
+  width: 263px;
+  height: 59px;
+  border: 0px;
+  border-radius: 30px;
+  font-family: "Glory";
+  font-size: 36px;
+
+  color: #4b3a39;
+  background: #aadacc;
+}

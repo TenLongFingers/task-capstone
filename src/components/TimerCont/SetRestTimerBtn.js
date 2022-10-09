@@ -2,8 +2,8 @@ import React from "react";
 
 function SetRestTimerBtn() {
   return (
-    <div className="rest-timer-btn">
-      <p>SetRestTimerBtn here</p>
+    <div className="set-btn-container">
+      <button className="button">Set Rest Time</button>
     </div>
   );
 }

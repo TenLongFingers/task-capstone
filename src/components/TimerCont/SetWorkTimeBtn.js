@@ -2,8 +2,8 @@ import React from "react";
 
 function SetWorkTimerBtn() {
   return (
-    <div className="set-work-timer-btn">
-      <p>SetWorkTimerBtn here</p>
+    <div>
+      <button className="button">Set Work Time</button>
     </div>
   );
 }

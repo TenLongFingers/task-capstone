@@ -2,8 +2,10 @@ import React from "react";
 
 function StartSessionBtn() {
   return (
-    <div className="start-session-btn">
-      <p>StartSessionBtn here</p>
+    <div className="set-btn-container">
+      <button className="button" id="start-session-btn">
+        Start Session
+      </button>
     </div>
   );
 }
