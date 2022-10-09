@@ -1,9 +1,11 @@
 import React from "react";
+import "./TimerContcss/TimerCont.css";
 
 function WorkTimer() {
   return (
     <div className="work-timer">
-      <p>WorkTimer here</p>
+      Work time
+      <div className="work-timer-countdown">23:31</div>
     </div>
   );
 }

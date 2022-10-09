@@ -1,21 +1,47 @@
 .timer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background: #665453;
   border: 2px solid #4b3a39;
-  border-radius: 49px;
-}
-.rest-timer {
-  color: #ece2d0;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 48px;
-  line-height: 54px;
+  border-radius: 3.125rem;
+  width: 77%;
+  height: 17rem;
 }
 
 .work-timer {
-  color: #ff98c3;
-  font-family: "Henny Penny";
+  position: relative;
+  top: -15%;
   font-style: normal;
-  font-weight: 400;
-  font-size: 128px;
-  line-height: 227px;
+  font-size: 2.5rem;
+  text-align: center;
+
+  color: #ff98c3;
+}
+
+.work-timer-countdown {
+  position: relative;
+  bottom: 10%;
+  font-family: "Henny Penny";
+  font-size: 8rem;
+  text-align: center;
+
+  color: #ff98c3;
+}
+
+.rest-timer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  bottom: 60%;
+  font-family: "Glory";
+  font-style: normal;
+  font-size: 2rem;
+
+  color: #ece2d0;
+}
+.rest-timer-countdown {
+  margin-left: 20px;
+  font-family: "Henny Penny";
 }
