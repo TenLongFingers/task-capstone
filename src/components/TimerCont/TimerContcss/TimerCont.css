@@ -25,6 +25,7 @@
   font-family: "Henny Penny";
   font-size: 8rem;
   text-align: center;
+  margin: 0px;
 
   color: #ff98c3;
 }
@@ -34,26 +35,44 @@
   flex-direction: row;
   align-items: center;
   position: relative;
-  bottom: 60%;
+  bottom: 75%;
   font-family: "Glory";
   font-style: normal;
   font-size: 2rem;
 
   color: #ece2d0;
 }
+
 .rest-timer-countdown {
   margin-left: 20px;
   font-family: "Henny Penny";
 }
 
 .button {
-  width: 263px;
+  width: 16.4375rem;
   height: 59px;
   border: 0px;
   border-radius: 30px;
   font-family: "Glory";
-  font-size: 36px;
+  font-size: 2.25rem;
+  margin: 10px;
 
   color: #4b3a39;
   background: #aadacc;
+}
+
+.set-btn-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  bottom: 110%;
+  right: 35%;
+}
+
+.start-session-btn {
+  display: flex;
+  align-items: center;
+  position: relative;
+  left: 35%;
+  bottom: 160%;
 }
