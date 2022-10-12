@@ -1,5 +1,5 @@
 import React from "react";
-import "./TimerContcss/TimerCont.css";
+import "../TimerCont/TimerContcss/TimerCont.css";
 
 import RestTimer from "./RestTimer";
 import SetRestTimerBtn from "./SetRestTimerBtn";

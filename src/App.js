@@ -1,15 +1,16 @@
+import React from "react";
 import "./App.css";
-import TimerCont from "./components/TimerCont/TimerCont";
-import TaskBank from "./components/TaskBank/TaskBank";
-import TimerTaskList from "./components/TimerTaskList/TimerTaskList";
+import SignInPage from "./components/SignInPage/SignInPage";
+import { Route, Routes } from "react-router-dom";
+import Homepage from "./components/Homepage/Homepage";
 
 function App() {
   return (
     <div className="App">
-      <h1>This is the app</h1>
-      <TimerCont />
-      <TimerTaskList />
-      <TaskBank />
+      <Routes>
+        <Route index element={<SignInPage />} />
+        <Route path="homepage" element={<Homepage />} />
+      </Routes>
     </div>
   );
 }
