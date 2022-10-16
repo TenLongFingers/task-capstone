@@ -1,8 +1,8 @@
 import React from "react";
-import "./App.css";
 import SignInPage from "./components/SignInPage/SignInPage";
 import { Route, Routes } from "react-router-dom";
 import Homepage from "./components/Homepage/Homepage";
+import "./App.css";
 
 function App() {
   return (

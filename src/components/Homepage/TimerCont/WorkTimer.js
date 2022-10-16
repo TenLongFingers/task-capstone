@@ -1,5 +1,4 @@
 import React from "react";
-import "./TimerContcss/TimerCont.css";
 
 function WorkTimer() {
   return (

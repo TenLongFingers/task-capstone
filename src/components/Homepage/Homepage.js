@@ -1,6 +1,4 @@
 import React from "react";
-import "./TimerContcss/TimerCont.css";
-
 import TimerCont from "./TimerCont/TimerCont";
 
 function Homepage() {

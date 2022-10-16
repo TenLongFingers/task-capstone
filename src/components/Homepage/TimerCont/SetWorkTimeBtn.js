@@ -1,5 +1,4 @@
 import React from "react";
-import "../TimerCont/TimerContcss/TimerCont.css";
 
 function SetWorkTimerBtn() {
   return (
