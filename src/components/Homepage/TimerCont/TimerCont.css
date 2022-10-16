@@ -48,19 +48,6 @@
   font-family: "Henny Penny";
 }
 
-.button {
-  width: 16.4375rem;
-  height: 59px;
-  border: 0px;
-  border-radius: 30px;
-  font-family: "Glory";
-  font-size: 2.25rem;
-  margin: 10px;
-
-  color: #4b3a39;
-  background: #aadacc;
-}
-
 .set-btn-container {
   display: flex;
   flex-direction: column;
