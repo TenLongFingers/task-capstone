@@ -6,12 +6,12 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="App">
+    <main className="App">
       <Routes>
         <Route index element={<SignInPage />} />
         <Route path="homepage" element={<Homepage />} />
       </Routes>
-    </div>
+    </main>
   );
 }
 
