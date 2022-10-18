@@ -6,8 +6,11 @@ h1 {
 }
 
 input {
+  padding: 10px;
   background-color: #d3efe7;
   border-radius: 20px;
+
+  font-family: "Glory";
 }
 .sign-in-box-container {
   padding: 3rem;
