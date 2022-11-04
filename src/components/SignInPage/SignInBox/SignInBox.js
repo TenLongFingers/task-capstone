@@ -1,7 +1,12 @@
 import React from "react";
 import { useRef, useState, useEffect, useContext } from "react";
+import AuthContext from "~/context/AuthProvider.js";
+
+import axios from "~/api/axios.js";
+const LOGIN_URL = "/auth";
 
 const SignInBox = () => {
+  const { setAuth } = useContext(AuthContext);
   const userRef = useRef();
   const errRef = useRef();
 
@@ -21,10 +26,27 @@ const SignInBox = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(user, pwd);
-    setUser("");
-    setPwd("");
-    setSuccess(true);
+    try {
+      const response = await axios.post(LOGIN_URL, { user, pwd });
+      console.log(response);
+      const accessToken = response?.data?.accessToken;
+      const roles = response?.data?.roles;
+      setAuth({ user, pwd, roles, accessToken });
+      setUser("");
+      setPwd("");
+      setSuccess(true);
+    } catch (err) {
+      if (!err?.response) {
+        setErrMsg("No Server Response");
+      } else if (err.response?.status === 400) {
+        setErrMsg("Missing username or password");
+      } else if (err.response?.status === 401) {
+        setErrMsg("Unauthorized");
+      } else {
+        setErrMsg("Login failed");
+      }
+      errRef.current.focus();
+    }
   };
 
   return (
