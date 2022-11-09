@@ -17,9 +17,6 @@ html {
   background-color: #edd9dd;
   min-height: 100%;
   max-width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
   font-family: "Glory";
   color: #665453;
