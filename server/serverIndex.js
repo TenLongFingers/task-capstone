@@ -6,7 +6,7 @@ const { Sequelize } = require("sequelize");
 
 const app = express();
 
-const { PORT, CONNECTION_STRING } = process.env;
+const { SERVER_PORT, CONNECTION_STRING } = process.env;
 
 //MIDDLEWARE
 app.use(express.json());
@@ -21,4 +21,15 @@ const sequelize = new Sequelize(CONNECTION_STRING, {
   },
 });
 
+sequelize.authenticate().then(() => {
+  app.set("db", {
+    sequelize,
+  });
+});
+
 //ENDPOINTS
+
+//SERVER LISTEN
+app.listen(SERVER_PORT, () => {
+  console.log(`listening on port ${SERVER_PORT}`);
+});
