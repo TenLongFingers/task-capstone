@@ -5,6 +5,7 @@ const cors = require("cors");
 const session = require("express-session");
 const authControl = require("./authController");
 const { Sequelize } = require("sequelize");
+const { default: axios } = require("axios");
 
 const app = express();
 
@@ -23,10 +24,15 @@ const sequelize = new Sequelize(CONNECTION_STRING, {
   },
 });
 
-sequelize.authenticate().then(() => {
-  app.set("db", {
-    sequelize,
-  });
+sequelize.authenticate().then(() => {});
+
+//ENDPOINTS
+//User Auth
+app.post("/auth/login", authControl.login);
+
+//SERVER LISTEN
+app.listen(SERVER_PORT, () => {
+  console.log(`listening on port ${SERVER_PORT}`);
 });
 
 //BEGIN USER SESSION
@@ -38,12 +44,3 @@ app.use(
     secret: SESSION_SECRET,
   })
 );
-
-//ENDPOINTS
-//User Auth
-app.post("/auth/login", authControl.login);
-
-//SERVER LISTEN
-app.listen(SERVER_PORT, () => {
-  console.log(`listening on port ${SERVER_PORT}`);
-});

@@ -1,6 +1,6 @@
 import React from "react";
 import { useRef, useState, useEffect, useContext } from "react";
-import { login } from "./authController";
+// import { login } from "../../../../server/authController"; It's not letting me access stuff outside of src, which I guess makes sense, so I don't know how import stuff happening on my server
 import AuthContext from "../../../context/AuthProvider";
 // import AuthContext from "~/context/AuthProvider.js";
 import axios from "axios";
@@ -30,7 +30,12 @@ const SignInBox = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Submission successful");
-    console.log(); //RIGHT HERE trying to connect front end to server, just trying to console log the login app.post. Then I want to console.log my whole database, just to make sure I"m pulling it right. Then deconstruct it and get the username and password.
+    axios.post("/auth/login").then((res) => {
+      console.log(res.data);
+    });
+    //mkay this isn't working
+
+    //RIGHT HERE trying to connect front end to server, just trying to console log the login app.post. Then I want to console.log my whole database, just to make sure I"m pulling it right. Then deconstruct it and get the username and password.
 
     // try {
     //   const response = await axios.post(LOGIN_URL, { user, pwd });
