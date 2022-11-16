@@ -30,7 +30,7 @@ const SignInBox = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Submission successful");
-    axios.post("/auth/login").then((res) => {
+    axios.get("auth/login").then((res) => {
       console.log(res.data);
     });
     //mkay this isn't working
@@ -79,7 +79,7 @@ const SignInBox = () => {
             {errMsg}{" "}
           </p>
 
-          <h1>Sign In</h1>
+          <h1 className="sign-in-head">Sign In</h1>
           <form onSubmit={handleSubmit}>
             <label htmlFor="username">Username:</label>
             <input

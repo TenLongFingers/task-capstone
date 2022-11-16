@@ -28,12 +28,7 @@ sequelize.authenticate().then(() => {});
 
 //ENDPOINTS
 //User Auth
-app.post("/auth/login", authControl.login);
-
-//SERVER LISTEN
-app.listen(SERVER_PORT, () => {
-  console.log(`listening on port ${SERVER_PORT}`);
-});
+app.get("/auth/login", authControl.login);
 
 //BEGIN USER SESSION
 app.use(
@@ -44,3 +39,8 @@ app.use(
     secret: SESSION_SECRET,
   })
 );
+
+//SERVER LISTEN
+app.listen(SERVER_PORT, () => {
+  console.log(`listening on port ${SERVER_PORT}`);
+});
