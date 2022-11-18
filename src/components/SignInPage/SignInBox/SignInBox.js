@@ -27,37 +27,20 @@ const SignInBox = () => {
     setErrMsg("");
   }, [user, pwd]);
 
+  //TRACK CHANGES IN INPUT
+  const changeHandler = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  //SUBMIT BUTTON FUNCTION
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Submission successful");
     axios.get("auth/login").then((res) => {
       console.log(res.data);
     });
-    //mkay this isn't working
-
-    //RIGHT HERE trying to connect front end to server, just trying to console log the login app.post. Then I want to console.log my whole database, just to make sure I"m pulling it right. Then deconstruct it and get the username and password.
-
-    // try {
-    //   const response = await axios.post(LOGIN_URL, { user, pwd });
-    //   console.log(response);
-    //   const accessToken = response?.data?.accessToken;
-    //   const roles = response?.data?.roles;
-    //   setAuth({ user, pwd, roles, accessToken });
-    //   setUser("");
-    //   setPwd("");
-    //   setSuccess(true);
-    // } catch (err) {
-    //   if (!err?.response) {
-    //     setErrMsg("No Server Response");
-    //   } else if (err.response?.status === 400) {
-    //     setErrMsg("Missing username or password");
-    //   } else if (err.response?.status === 401) {
-    //     setErrMsg("Unauthorized");
-    //   } else {
-    //     setErrMsg("Login failed");
-    //   }
-    //   errRef.current.focus();
-    // }
   };
 
   return (
@@ -103,7 +86,7 @@ const SignInBox = () => {
           </form>
           <p>Just want to test out the app?</p>
           <p> Username: Friend </p>
-          <p>Password: Test</p>
+          <p>Password: testtest123</p>
         </section>
       )}
     </>
