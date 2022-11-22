@@ -28,7 +28,7 @@ sequelize.authenticate().then(() => {});
 
 //ENDPOINTS
 //User Auth
-app.get("/auth/login", authControl.login);
+app.post("/auth/login", authControl.login);
 
 //BEGIN USER SESSION
 app.use(

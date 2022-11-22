@@ -1,7 +1,7 @@
 import React from "react";
 import { useRef, useState, useEffect, useContext } from "react";
 // import { login } from "../../../../server/authController"; It's not letting me access stuff outside of src, which I guess makes sense, so I don't know how import stuff happening on my server
-import AuthContext from "../../../context/AuthProvider";
+// import AuthContext from "../../../context/AuthProvider";
 // import AuthContext from "~/context/AuthProvider.js";
 import axios from "axios";
 
@@ -9,7 +9,7 @@ import axios from "axios";
 const LOGIN_URL = "/auth";
 
 const SignInBox = () => {
-  const { setAuth } = useContext(AuthContext);
+  // const { setAuth } = useContext(AuthContext);
   const userRef = useRef();
   const errRef = useRef();
 
@@ -34,11 +34,13 @@ const SignInBox = () => {
     });
   };
 
+  //need help with submit function
+
   //SUBMIT BUTTON FUNCTION
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Submission successful");
-    axios.get("auth/login").then((res) => {
+    const { username, password } = this.state;
+    axios.post("/auth/login", { username, password }).then((res) => {
       console.log(res.data);
     });
   };
