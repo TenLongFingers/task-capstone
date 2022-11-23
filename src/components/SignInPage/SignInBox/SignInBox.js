@@ -28,21 +28,16 @@ const SignInBox = () => {
   }, [user, pwd]);
 
   //TRACK CHANGES IN INPUT
-  const changeHandler = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  //need help with submit function
+  // const changeHandler = (e) => {
+  //   this.setState({
+  //     [e.target.name]: e.target.value,
+  //   });
+  // };
 
   //SUBMIT BUTTON FUNCTION
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { username, password } = this.state;
-    axios.post("/auth/login", { username, password }).then((res) => {
-      console.log(res.data);
-    });
+    axios.post("/auth/login", { user, pwd }).then((res) => {});
   };
 
   return (
