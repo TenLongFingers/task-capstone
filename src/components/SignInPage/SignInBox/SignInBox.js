@@ -36,18 +36,16 @@ const SignInBox = () => {
   // };
 
   //SUBMIT BUTTON FUNCTION
-  const handleSubmit = (props) => {
-    let submitBtn = async (e) => {
-      e.preventDefault();
-      axios
-        .post("/auth/login", { user, pwd })
-        .then((res) => {
-          console.log(res.data);
-          props.loginUser(res.data);
-          props.history.push("/profile");
-        })
-        .catch((error) => alert(error, "Incorrect username and/or password"));
-    };
+  const handleSubmit = async (props, e) => {
+    e.preventDefault();
+    axios
+      .post("/auth/login", { user, pwd })
+      .then((res) => {
+        console.log(res.data);
+        props.loginUser(res.data);
+        props.history.push("/profile");
+      })
+      .catch((error) => alert(error, "Incorrect username and/or password"));
   };
 
   return (
