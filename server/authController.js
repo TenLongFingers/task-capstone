@@ -7,14 +7,21 @@ module.exports = {
   //SIGN IN
   login: async (req, res) => {
     const db = req.app.get("db");
-    const { user, pwd } = req.body;
+    const { username, password } = req.body;
 
-    const userLogin = await db.check_user_for_login(user);
-    if (!userLogin[0]) {
+    const user = await db.check_user_for_login(username);
+    if (!user[0]) {
       return res.status("User doesn't exist");
     } else {
-      const authSuccess = bcrypt.compareSync(pwd, userLogin[0].pwd);
+      const authSuccess = bcrypt.compareSync(password, user[0].password);
       if (authSuccess) {
+        req.session.user = {
+          userID: user[0].id,
+          username: user[0].username,
+        };
+        res.status(200).send(req.session.user);
+      } else {
+        res.status(403).send("Incorrect username and/or password");
       }
     }
 

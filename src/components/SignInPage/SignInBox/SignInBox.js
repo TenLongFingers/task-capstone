@@ -1,8 +1,8 @@
 import React from "react";
 import { useRef, useState, useEffect, useContext } from "react";
-// import { login } from "../../../../server/authController"; It's not letting me access stuff outside of src, which I guess makes sense, so I don't know how import stuff happening on my server
 // import AuthContext from "../../../context/AuthProvider";
 // import AuthContext from "~/context/AuthProvider.js";
+import { loginUser } from "../../../actions/action"; //It's not letting me access stuff outside of src, which I guess makes sense, so I don't know how import stuff happening on my server
 import axios from "axios";
 
 // import axios from "~/api/axios.js";
@@ -28,6 +28,7 @@ const SignInBox = () => {
   }, [user, pwd]);
 
   //TRACK CHANGES IN INPUT
+  //this is class syntax, needs to be changed to functional syntax
   // const changeHandler = (e) => {
   //   this.setState({
   //     [e.target.name]: e.target.value,
@@ -35,9 +36,18 @@ const SignInBox = () => {
   // };
 
   //SUBMIT BUTTON FUNCTION
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    axios.post("/auth/login", { user, pwd }).then((res) => {});
+  const handleSubmit = (props) => {
+    let submitBtn = async (e) => {
+      e.preventDefault();
+      axios
+        .post("/auth/login", { user, pwd })
+        .then((res) => {
+          console.log(res.data);
+          props.loginUser(res.data);
+          props.history.push("/profile");
+        })
+        .catch((error) => alert(error, "Incorrect username and/or password"));
+    };
   };
 
   return (
