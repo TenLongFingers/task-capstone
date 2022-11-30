@@ -24,12 +24,12 @@ const sequelize = new Sequelize(CONNECTION_STRING, {
   },
 });
 
-sequelize.authenticate().then(() => {
-  AbortController,
-    set("db", {
-      sequelize,
-    });
-});
+// sequelize.authenticate().then(() => {
+//   AbortController,
+//     set("db", {
+//       sequelize,
+//     });
+// });
 
 //ENDPOINTS
 
@@ -41,14 +41,15 @@ app.get("/users", async (req, res) => {
 });
 
 //USER AUTH LOGIN
-//we may have to change the name of the row in the database
 app.post("/auth/login", async (req, res) => {
-  const { username, password } = req.body;
-  const [[username]] = await sequelize.query(
-    `SELECT * FROM user_table WHERE username = '${username}';`
+  const { pwd, user } = req.body;
+  console.log(user);
+  const dbRes = await sequelize.query(
+    `SELECT * FROM user_table WHERE username = '${user}';`
   );
-  if (username.password === password) {
-    res.status(200).send(username);
+  console.log(dbRes[0][0].password);
+  if (dbRes[0][0].password === pwd) {
+    res.status(200).send(dbRes[0][0]);
   } else {
     res.status(400).send(null);
   }

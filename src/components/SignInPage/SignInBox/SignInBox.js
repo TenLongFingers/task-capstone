@@ -36,12 +36,13 @@ const SignInBox = () => {
   // };
 
   //SUBMIT BUTTON FUNCTION
-  const handleSubmit = async (props, e) => {
+  const handleSubmit = (e, props) => {
     e.preventDefault();
     axios
       .post("/auth/login", { user, pwd })
       .then((res) => {
         console.log(res.data);
+        console.log("login success");
         props.loginUser(res.data);
         props.history.push("/profile");
       })
